@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>أطباء وصيدليات مدينة سوران</title>
+  <meta name="description" content="منصة لجمع بيانات الأطباء والصيدليات في مدينة سوران" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <div class="logo">🏥</div>
+      <h1>أطباء وصيدليات مدينة سوران</h1>
+      <p class="subtitle">منصة لجمع بيانات الأطباء والصيدليات — اختر الواجهة المناسبة، أدخل البيانات، ثم اضغط زر «إرسال البيانات»</p>
+    </header>
+
+    <nav class="tabs">
+      <button type="button" class="tab active" id="tab-doctors" data-panel="doctors">👨‍⚕️ واجهة الأطباء</button>
+      <button type="button" class="tab" id="tab-pharmacies" data-panel="pharmacies">💊 واجهة الصيدليات</button>
+    </nav>
+
+    <!-- واجهة الأطباء -->
+    <section class="panel active" id="panel-doctors">
+      <h2 class="panel-title">👨‍⚕️ بيانات الطبيب</h2>
+      <form id="doctors-form">
+        <div class="field">
+          <label for="d-name">👨‍⚕️ الاسم <span class="req">*</span></label>
+          <input id="d-name" name="name" type="text" required placeholder="مثال: د. أحمد محمد علي" />
+        </div>
+        <div class="field">
+          <label for="d-specialty">🩺 الاختصاص <span class="req">*</span></label>
+          <input id="d-specialty" name="specialty" type="text" required placeholder="مثال: باطنية، أطفال، أسنان..." />
+        </div>
+        <div class="field">
+          <label for="d-location">📍 الموقع <span class="req">*</span></label>
+          <input id="d-location" name="location" type="text" required placeholder="الحي / الشارع / أقرب معلم" />
+        </div>
+        <div class="field">
+          <label for="d-days">📅 أيام الدوام <span class="req">*</span></label>
+          <input id="d-days" name="work_days" type="text" required placeholder="مثال: السبت - الخميس" />
+        </div>
+        <div class="field">
+          <label for="d-hours">🕐 أوقات الدوام <span class="req">*</span></label>
+          <input id="d-hours" name="work_hours" type="text" required placeholder="مثال: 9 صباحاً - 5 مساءً" />
+        </div>
+        <div class="field">
+          <label for="d-off">🚫 يوم العطلة</label>
+          <input id="d-off" name="day_off" type="text" placeholder="مثال: الجمعة" />
+        </div>
+        <div class="field">
+          <label for="d-phone">📞 رقم التواصل <span class="req">*</span></label>
+          <input id="d-phone" name="phone" type="tel" required placeholder="07xx xxx xxxx" />
+        </div>
+        <button type="submit" class="submit-btn">📨 إرسال البيانات</button>
+        <p class="status" id="doctors-status" role="status"></p>
+      </form>
+    </section>
+
+    <!-- واجهة الصيدليات -->
+    <section class="panel" id="panel-pharmacies" hidden>
+      <h2 class="panel-title">💊 بيانات الصيدلية</h2>
+      <form id="pharmacies-form">
+        <div class="field">
+          <label for="p-name">💊 اسم الصيدلية <span class="req">*</span></label>
+          <input id="p-name" name="pharmacy_name" type="text" required placeholder="مثال: صيدلية النور" />
+        </div>
+        <div class="field">
+          <label for="p-doctor">👨‍⚕️ اسم الدكتور</label>
+          <input id="p-doctor" name="doctor_name" type="text" placeholder="مثال: د. أحمد محمد علي" />
+        </div>
+        <div class="field">
+          <label for="p-location">📍 الموقع <span class="req">*</span></label>
+          <input id="p-location" name="location" type="text" required placeholder="الحي / الشارع / أقرب معلم" />
+        </div>
+        <div class="field">
+          <label for="p-hours">🕐 أوقات الدوام <span class="req">*</span></label>
+          <input id="p-hours" name="work_hours" type="text" required placeholder="مثال: 9 صباحاً - 10 مساءً" />
+        </div>
+        <button type="submit" class="submit-btn">📨 إرسال البيانات</button>
+        <p class="status" id="pharmacies-status" role="status"></p>
+      </form>
+    </section>
+
+    <footer class="footer">💡 البيانات المُدخلة تُرسل وتُحفظ في قاعدة بيانات Supabase لاستخدامها لاحقاً</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
