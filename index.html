@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تسجيل مازوت التدفئة - طيبة الإمام</title>
+  <meta name="description" content="منصة تسجيل طلبات مازوت التدفئة لمدينة طيبة الإمام" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- شاشة البداية (Splash Screen) -->
+  <div class="splash-screen" id="splash-screen" role="status" aria-label="جاري التحميل">
+    <div class="splash-content">
+      <div class="splash-icon" aria-hidden="true">⛽</div>
+      <div class="splash-title">مازوت التدفئة - طيبة الإمام</div>
+      <div class="circular-loader" aria-hidden="true">
+        <svg class="loader-svg" viewBox="0 0 100 100">
+          <circle class="loader-bg" cx="50" cy="50" r="45" />
+          <circle class="loader-progress" cx="50" cy="50" r="45" />
+        </svg>
+        <span class="loader-percent">0%</span>
+      </div>
+      <div class="splash-dev">
+        <span class="dev-name">قصي مهند الصالح</span>
+        <span class="dev-number">07xx xxx xxxx</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- المحتوى الرئيسي -->
+  <main class="container" id="main-content" hidden>
+    <header class="header">
+      <div class="logo" aria-hidden="true">⛽</div>
+      <h1>تسجيل مازوت التدفئة</h1>
+      <p class="subtitle">مدينة طيبة الإمام — املأ البيانات وأرفق الصورة ثم اضغط «إرسال الطلب»</p>
+    </header>
+
+    <section class="panel">
+      <h2 class="panel-title">📝 بيانات طلب المازوت</h2>
+      <form id="heating-oil-form" enctype="multipart/form-data">
+        <div class="field">
+          <label for="full-name">👤 الاسم الثلاثي <span class="req">*</span></label>
+          <input id="full-name" name="full_name" type="text" required placeholder="مثال: أحمد محمد علي" />
+        </div>
+
+        <div class="field">
+          <label for="wife-name">👩 اسم الزوجة <span class="req">*</span></label>
+          <input id="wife-name" name="wife_name" type="text" required placeholder="مثال: فاطمة أحمد حسن" />
+        </div>
+
+        <div class="field">
+          <label for="national-id">🆔 الرقم الوطني <span class="req">*</span></label>
+          <input id="national-id" name="national_id" type="text" required placeholder="مثال: 00000000000" maxlength="11" pattern="\d{11}" />
+        </div>
+
+        <div class="field">
+          <label for="family-book">📒 رقم دفتر العائلة <span class="req">*</span></label>
+          <input id="family-book" name="family_book" type="text" required placeholder="مثال: 123456" />
+        </div>
+
+        <div class="field">
+          <label for="mobile">📞 رقم الجوال <span class="req">*</span></label>
+          <input id="mobile" name="mobile" type="tel" required placeholder="07xx xxx xxxx" pattern="07\d{8}" />
+        </div>
+
+        <div class="field">
+          <label for="housing-area">🏘️ بيانات السكن (الحي) <span class="req">*</span></label>
+          <select id="housing-area" name="housing_area" required>
+            <option value="" disabled selected>اختر الحي</option>
+            <option value="حي جنوي">🌿 حي جنوي</option>
+            <option value="حي شمالي">⬆️ حي شمالي</option>
+            <option value="حي شرقي">➡️ حي شرقي</option>
+            <option value="حي غربي">⬅️ حي غربي</option>
+          </select>
+        </div>
+
+        <div class="field file-field">
+          <label for="family-book-image">📷 رفع الصورة الأولى لدفتر العائلة <span class="req">*</span></label>
+          <div class="file-upload" id="file-upload-area">
+            <input type="file" id="family-book-image" name="family_book_image" accept="image/*" required hidden />
+            <div class="file-upload-content" id="file-upload-content">
+              <span class="file-icon">📎</span>
+              <span class="file-text">اضغط أو اسحب الصورة هنا</span>
+              <span class="file-hint">PNG, JPG حتى 5 ميجابايت</span>
+            </div>
+            <div class="file-preview" id="file-preview" hidden>
+              <img id="preview-img" src="" alt="معاينة الصورة" />
+              <button type="button" class="remove-file" id="remove-file" aria-label="إزالة الصورة">✕</button>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submit-btn">📨 إرسال الطلب</button>
+        <p class="status" id="form-status" role="status"></p>
+      </form>
+    </section>
+
+    <footer class="footer">
+      تطوير: <strong>قصي مهند الصالح</strong> — للتواصل: 07xx xxx xxxx
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,439 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #0f766e;
+  --primary-dark: #115e59;
+  --primary-light: #14b8a6;
+  --bg: #f0fdfa;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #d1d5db;
+  --radius: 14px;
+  --danger: #dc2626;
+  --success: #047857;
+}
+
+/* ===== شاشة البداية (Splash Screen) ===== */
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(160deg, #0f766e 0%, #0d9488 45%, #14b8a6 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.splash-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.splash-content {
+  text-align: center;
+  color: #fff;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.splash-icon {
+  font-size: 80px;
+  margin-bottom: 16px;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+}
+
+.splash-title {
+  font-size: 28px;
+  font-weight: 900;
+  margin-bottom: 32px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+/* ===== شريط التحميل الدائري ===== */
+.circular-loader {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 24px;
+}
+
+.loader-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.loader-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.2);
+  stroke-width: 6;
+}
+
+.loader-progress {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 283;
+  stroke-dashoffset: 283;
+  animation: progressLoad 5s linear forwards;
+}
+
+@keyframes progressLoad {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.loader-percent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 22px;
+  font-weight: 900;
+  font-family: "Cairo", sans-serif;
+}
+
+.splash-dev {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dev-name {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.dev-number {
+  display: block;
+  font-size: 14px;
+  opacity: 0.8;
+  font-weight: 500;
+}
+
+/* ===== المحتوى الرئيسي ===== */
+body {
+  font-family: "Cairo", "Segoe UI", Tahoma, Arial, sans-serif;
+  background: linear-gradient(160deg, #0f766e 0%, #0d9488 45%, #14b8a6 100%);
+  min-height: 100vh;
+  color: var(--text);
+  padding: 24px 16px 40px;
+}
+
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== الترويسة ===== */
+.header {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 24px;
+}
+
+.logo {
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 14px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+}
+
+.header h1 {
+  font-size: 30px;
+  font-weight: 900;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+.header .subtitle {
+  margin-top: 10px;
+  font-size: 14.5px;
+  font-weight: 600;
+  opacity: 0.95;
+  line-height: 1.8;
+}
+
+/* ===== البطاقات ===== */
+.panel {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 28px 26px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+.panel-title {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--primary-dark);
+  padding-bottom: 14px;
+  margin-bottom: 20px;
+  border-bottom: 2px dashed #e5e7eb;
+}
+
+/* ===== الحقول ===== */
+.field {
+  margin-bottom: 16px;
+}
+
+.field label {
+  display: block;
+  font-size: 14.5px;
+  font-weight: 700;
+  margin-bottom: 7px;
+  color: var(--primary-dark);
+}
+
+.field .req {
+  color: var(--danger);
+}
+
+.field input,
+.field select {
+  width: 100%;
+  font-family: inherit;
+  font-size: 15px;
+  padding: 11px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  background: #fafafa;
+  color: var(--text);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.field input::placeholder {
+  color: #9ca3af;
+  font-size: 13.5px;
+}
+
+.field input:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--primary-light);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.22);
+}
+
+.field select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left 12px center;
+  padding-left: 42px;
+}
+
+/* ===== رفع الملف ===== */
+.file-field {
+  margin-bottom: 20px;
+}
+
+.file-upload {
+  position: relative;
+}
+
+.file-upload-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 20px;
+  border: 2px dashed var(--border);
+  border-radius: 12px;
+  background: #fafafa;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.file-upload-content:hover {
+  border-color: var(--primary-light);
+  background: #f0fdfa;
+}
+
+.file-upload-content.dragover {
+  border-color: var(--primary);
+  background: #ecfdf5;
+}
+
+.file-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.file-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--primary-dark);
+  margin-bottom: 4px;
+}
+
+.file-hint {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.file-preview {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  border: 2px solid var(--primary-light);
+  border-radius: 12px;
+  background: #ecfdf5;
+}
+
+#preview-img {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.remove-file {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--danger);
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.remove-file:hover {
+  background: #b91c1c;
+}
+
+/* ===== زر الإرسال ===== */
+.submit-btn {
+  width: 100%;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  margin-top: 8px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(15, 118, 110, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(15, 118, 110, 0.45);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ===== رسائل الحالة ===== */
+.status {
+  margin-top: 14px;
+  font-size: 14.5px;
+  font-weight: 700;
+  text-align: center;
+  padding: 11px 14px;
+  border-radius: 10px;
+  display: none;
+}
+
+.status.visible {
+  display: block;
+}
+
+.status.success {
+  display: block;
+  background: #ecfdf5;
+  color: var(--success);
+  border: 1.5px solid #a7f3d0;
+}
+
+.status.error {
+  display: block;
+  background: #fef2f2;
+  color: var(--danger);
+  border: 1.5px solid #fecaca;
+}
+
+.status.loading {
+  display: block;
+  background: #fffbeb;
+  color: #b45309;
+  border: 1.5px solid #fde68a;
+}
+
+/* ===== التذييل ===== */
+.footer {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 22px;
+}
+
+/* ===== الجوال ===== */
+@media (max-width: 520px) {
+  .header h1 {
+    font-size: 23px;
+  }
+
+  .splash-title {
+    font-size: 22px;
+  }
+
+  .circular-loader {
+    width: 100px;
+    height: 100px;
+  }
+
+  .panel {
+    padding: 22px 18px;
+  }
+
+  .file-upload-content {
+    padding: 24px 16px;
+  }
+}
