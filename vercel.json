@@ -1,0 +1,13 @@
+{
+  "buildCommand": "echo 'Static site - no build needed'",
+  "outputDirectory": ".",
+  "devCommand": "npx serve .",
+  "installCommand": "echo 'No install needed'",
+  "framework": "none",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
