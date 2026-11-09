@@ -1,7 +1,7 @@
 // إعدادات Supabase
-const SUPABASE_URL = "https://peqwvdyxtuhigoxdxmah.supabase.co";
+const SUPABASE_URL = "https://rtjmdqgggltcikllsnmb.supabase.co";
 const SUPABASE_ANON_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBlcXd2ZHl4dHVoaWdveGR4bWFoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk0MDk1MTksImV4cCI6MjEwNDk4NTUxOX0.zgCUMoy8stsxdI5q8rTsEqBfCQeDxNcOER5kwyOgemM";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ0am1kcWdnZ2x0Y2lrbGxzbm1iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQyMzc4NDMsImV4cCI6MjEwOTgxMzg0M30.yNPQYhpsFqR2f67fW5nDSHr7SUvm4FnLImI5X4k4I0U";
 
 // ===== شاشة البداية (Splash Screen) =====
 const splashScreen = document.getElementById("splash-screen");
